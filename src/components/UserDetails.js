@@ -7,12 +7,17 @@ function UserDetails() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    setLoading(true)
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(res => res.json())
-      .then(data => setUser(data))
-      .finally(() => setLoading(false))
-  }, [id])
+  setLoading(true)
+  fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      // artificial delay to keep loading visible
+      setTimeout(() => {
+        setUser(data)
+        setLoading(false)
+      }, 500) // 500ms delay
+    })
+}, [id])
 
   if (loading) return <div>Loading...</div>  // simple single place
 
