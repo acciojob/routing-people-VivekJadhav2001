@@ -1,17 +1,15 @@
-
-import React from "react";
-import './../styles/App.css';
-import UserList from "./UserList";
-import UserDetails from "./UserDetails";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import UserList from './UserList'
+import UserDetails from './UserDetails'
 
 const App = () => {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<UserList/>} />
-      <Route path='/users/:id' element={<UserDetails/>}/>
-    </Routes>
+      <Switch>
+        <Route exact path='/' component={UserList} />
+        <Route path='/users/:id' component={UserDetails} />
+      </Switch>
     </BrowserRouter>
   )
 }
