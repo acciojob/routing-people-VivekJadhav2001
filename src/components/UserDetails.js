@@ -27,7 +27,7 @@ function UserDetails() {
         <p className='mb-2'>Website: {user.website}</p>
       </div>
     </div>
-  )
+  ) 
 }
 
 export default UserDetails
